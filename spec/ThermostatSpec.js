@@ -44,12 +44,37 @@
     thermostat.resetter();
     expect(thermostat.temperature).toEqual(20)
   });
+});
 
-  it('has power-saver switched on by default', function(){
+
+describe('Powersaver', function(){
+
+  var thermostat;
+  beforeEach(function(){
+    thermostat = new Thermostat();
+  });
+
+  it('is switched on by default', function(){
     expect(thermostat.powerSaver).toEqual(true);
   });
 
+  it('can be switched off', function(){
+    expect(thermostat.powerSaver).toEqual(true);
+    thermostat.powerSwitch();
+    expect(thermostat.powerSaver).toEqual(false);
+  });
+
+  it('if on has max temp of 25 degrees', function(){
+    while(thermostat.temperature < 25) {
+      thermostat.increase();
+    };
+    thermostat.increase();
+    expect(function() {thermostat.increase();}).toThrow(new Error("Too hot with PS on"))
+  });
+
+});
 
 
 
- });
+
+

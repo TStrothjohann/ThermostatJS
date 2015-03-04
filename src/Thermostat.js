@@ -1,5 +1,6 @@
 var Thermostat = function(){
    this.temperature = 20;
+   this.powerSaver = true;
 };
 
 Thermostat.prototype.increase = function(){
@@ -23,4 +24,8 @@ Thermostat.prototype.controller = function(){
 
 Thermostat.prototype.resetter = function(){
   return this.temperature = 20;
+};
+
+Thermostat.prototype.powerSwitch = function (){
+  this.powerSaver = false;
 };
