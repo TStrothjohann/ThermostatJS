@@ -40,4 +40,9 @@
     expect(function() {thermostat.increase();}).toThrow(new Error("This is too hot."));
   });
 
+  it('has a resetter button that resets temperature to twenty', function(){
+    thermostat.resetter();
+    expect(thermostat.temperature).toEqual(20)
+  });
+
  });
