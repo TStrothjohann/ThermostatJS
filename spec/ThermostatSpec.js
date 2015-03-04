@@ -27,8 +27,17 @@
       thermostat.decrease();
     };
     expect(thermostat.temperature).toEqual(10);
+    thermostat.decrease();
     expect(function() {thermostat.decrease();}).toThrow(new Error("Too cold, there is schneefloeckchen on the window"));
+  });
 
+  it('has a maximum temperature of 32 degrees', function(){
+    while(thermostat.temperature < 32) {
+      thermostat.increase();
+    };
+    expect(thermostat.temperature).toEqual(32);
+    thermostat.increase();
+    expect(function() {thermostat.increase();}).toThrow(new Error("This is too hot."));
   });
 
  });
