@@ -1,8 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <script src="Thermostat.js"></script>
+    <script src="js/Thermostat.js"></script>
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/thermostat.css">
     <meta charset="utf-8">
     <title>Thermostat</title>
   </head>
@@ -13,10 +14,20 @@
     <div id="temperature"></div>
     <a href="#" id="increase">Increase</a>
     <a href="#" id="decrease">Decrease</a>
-    <a href="#" id="power">Powaaaa Sabre On</a>
+  
+
+    <div id="power" class="onoffswitch">
+      <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch" checked>
+      <label class="onoffswitch-label" for="myonoffswitch">
+        <span class="onoffswitch-inner"></span>
+        <span class="onoffswitch-switch"></span>
+      </label>
+    </div>
+
 
 
   </body>
+  
   <script type="text/javascript">
   var thermostat = new Thermostat();
   $( document ).ready(function() {
@@ -36,6 +47,16 @@
       $("#temperature").text(thermostat.temperature)
     });
   });
+
+  $(document).ready(function() {
+    $("#power").click(function() {
+      thermostat.powerSwitch(), 
+      $("#temperature").text(thermostat.temperature);
+    });
+  });
+
+  
+
 
 
   </script>
