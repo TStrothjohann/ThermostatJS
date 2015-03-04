@@ -76,7 +76,7 @@ describe('Powersaver', function(){
       thermostat.increase();
     };
     thermostat.increase();
-    expect(function() {thermostat.increase();}).toThrow(new Error("Too hot with PS on"))
+    expect(thermostat.temperature).toEqual(25)
   });
 
   it('switched on when temperature greater than 25 reset', function(){

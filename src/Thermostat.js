@@ -15,7 +15,7 @@ Thermostat.prototype.decrease = function(){
 
 Thermostat.prototype.controller = function(){
   if (this.powerSaver && this.temperature > 25){
-    throw Error("Too hot with PS on")
+
   }
   else if (this.temperature < 11) {
     throw Error("Too cold, there is schneefloeckchen on the window")
