@@ -32,6 +32,7 @@
   });
 
   it('has a maximum temperature of 32 degrees', function(){
+    thermostat.powerSwitch();
     while(thermostat.temperature < 32) {
       thermostat.increase();
     };
@@ -70,6 +71,13 @@ describe('Powersaver', function(){
     };
     thermostat.increase();
     expect(function() {thermostat.increase();}).toThrow(new Error("Too hot with PS on"))
+  });
+
+  it('switched on when temperature greater than 25 reset', function(){
+    thermostat.powerSwitch();
+    thermostat.temperature = 30;
+    thermostat.powerSwitch();
+    expect(thermostat.temperature).toEqual(20);
   });
 
 });
