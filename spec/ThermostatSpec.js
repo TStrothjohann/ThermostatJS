@@ -22,5 +22,13 @@
     expect(thermostat.temperature).toEqual(19);
   });
 
+  it('has a minimum temperature of 10', function(){
+    while(thermostat.temperature > 10) {
+      thermostat.decrease();
+    };
+    expect(thermostat.temperature).toEqual(10);
+    expect(function() {thermostat.decrease();}).toThrow(new Error("Too cold, there is schneefloeckchen on the window"));
+
+  });
 
  });
