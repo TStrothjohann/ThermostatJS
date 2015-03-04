@@ -1,5 +1,7 @@
+
  describe('Thermostat', function(){
 
+  var thermostat;
   beforeEach(function(){
     thermostat = new Thermostat();
   });
@@ -9,8 +11,16 @@
   });
 
   it('can increase temperature', function(){
-    expect(thermostat.temperature).toEqual(20)
+    expect(thermostat.temperature).toEqual(20);
     thermostat.increase();
     expect(thermostat.temperature).toEqual(21);
   });
+
+  it('can decrease temperature', function(){
+    expect(thermostat.temperature).toEqual(20);
+    thermostat.decrease();
+    expect(thermostat.temperature).toEqual(19);
+  });
+
+
  });
