@@ -17,23 +17,23 @@
 
   </body>
   <script type="text/javascript">
-    // thermostat = new Thermostat();
-    // document.getElementById("temperature").innerHTML = thermostat.temperature;
+    thermostat = new Thermostat();
+    document.getElementById("temperature").innerHTML = thermostat.temperature;
 
 
-    // function powersaveron(value){
-    //   document.getElementById("power").value = thermostat.powerSwitch();
-    // };
+    function powersaveron(value){
+      document.getElementById("power").value = thermostat.powerSwitch();
+    };
 
-    // function increase(value){
-    //   document.getElementById("increase").value = thermostat.increase();
-    //   document.getElementById("temperature").innerHTML = thermostat.temperature;
-    // };
+    function increase(value){
+      document.getElementById("increase").value = thermostat.increase();
+      document.getElementById("temperature").innerHTML = thermostat.temperature;
+    };
 
 
-    // function decrease(value){
-    //   document.getElementById("increase").value = thermostat.decrease();
-    //   document.getElementById("temperature").innerHTML = thermostat.temperature;
-    // };
+    function decrease(value){
+      document.getElementById("increase").value = thermostat.decrease();
+      document.getElementById("temperature").innerHTML = thermostat.temperature;
+    };
   </script>
 </html>
