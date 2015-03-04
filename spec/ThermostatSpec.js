@@ -45,4 +45,11 @@
     expect(thermostat.temperature).toEqual(20)
   });
 
+  it('has power-saver switched on by default', function(){
+    expect(thermostat.powerSaver).toEqual(true);
+  });
+
+
+
+
  });

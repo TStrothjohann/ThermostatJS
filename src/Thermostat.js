@@ -20,3 +20,7 @@ Thermostat.prototype.controller = function(){
     throw Error("This is too hot.")
   };
 };
+
+Thermostat.prototype.resetter = function(){
+  return this.temperature = 20;
+};
