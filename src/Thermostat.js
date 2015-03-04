@@ -2,7 +2,7 @@ var Thermostat = function(){
    this.temperature = 20;
    this.powerSaver = true;
    this.MINTEMP = 10;
-   this.maxTemp = 32;
+   this.maxTemp = 26;
 };
 
 Thermostat.prototype.increase = function(){
@@ -27,8 +27,10 @@ Thermostat.prototype.resetter = function(){
 
 Thermostat.prototype.powerSwitch = function (){
   this.powerSaver = (this.powerSaver ? false : true);
+  if (this.powerSaver === true){
+      this.resetter();
+  }
+  else if(this.powerSaver === false){
+    this.maxTemp = 32
+  };
 };
-
-
-
-

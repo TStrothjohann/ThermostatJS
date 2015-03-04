@@ -33,6 +33,7 @@
   });
 
   it('has a maximum temperature of 32 degrees', function(){
+    thermostat.powerSwitch();
     while(thermostat.temperature < 32) {
       thermostat.increase();
     };
@@ -72,14 +73,16 @@ describe('Powersaver', function(){
   });
 
   it('if on has max temp of 25 degrees', function(){
-    while(thermostat.temperature < 25) {
+    while(thermostat.temperature < 24) {
       thermostat.increase();
     };
     thermostat.increase();
-    expect(thermostat.temperature).toEqual(25)
+    thermostat.increase();
+    thermostat.increase();
+    expect(thermostat.temperature).toEqual(26)
   });
 
-  xit('switched on when temperature greater than 25 reset', function(){
+  it('switched on when temperature greater than 25 reset', function(){
     thermostat.powerSwitch();
     while(thermostat.temperature < 25) {
       thermostat.increase();
