@@ -23,22 +23,22 @@
   });
 
   it('has a minimum temperature of 10', function(){
-    while(thermostat.temperature > 11) {
+    while(thermostat.temperature > 10) {
       thermostat.decrease();
     };
-    expect(thermostat.temperature).toEqual(11);
+
+    expect(thermostat.temperature).toEqual(10);
     thermostat.decrease();
-    expect(function() {thermostat.decrease();}).toThrow(new Error("Too cold, there is schneefloeckchen on the window"));
+    expect(thermostat.temperature).toEqual(10);
   });
 
   it('has a maximum temperature of 32 degrees', function(){
-    thermostat.powerSwitch();
-    while(thermostat.temperature < 31) {
+    while(thermostat.temperature < 32) {
       thermostat.increase();
     };
-    expect(thermostat.temperature).toEqual(31);
+    expect(thermostat.temperature).toEqual(32);
     thermostat.increase();
-    expect(function() {thermostat.increase();}).toThrow(new Error("This is too hot."));
+    expect(thermostat.temperature).toEqual(32);
   });
 
   it('has a resetter button that resets temperature to twenty', function(){
@@ -76,10 +76,10 @@ describe('Powersaver', function(){
       thermostat.increase();
     };
     thermostat.increase();
-    expect(function() {thermostat.increase();}).toThrow(new Error("Too hot with PS on"))
+    expect(thermostat.temperature).toEqual(25)
   });
 
-  it('switched on when temperature greater than 25 reset', function(){
+  xit('switched on when temperature greater than 25 reset', function(){
     thermostat.powerSwitch();
     while(thermostat.temperature < 25) {
       thermostat.increase();
