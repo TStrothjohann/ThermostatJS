@@ -17,10 +17,10 @@ Thermostat.prototype.controller = function(){
   if (this.powerSaver && this.temperature > 25){
     throw Error("Too hot with PS on")
   }
-  else if (this.temperature < 10) {
+  else if (this.temperature < 11) {
     throw Error("Too cold, there is schneefloeckchen on the window")
   }
-  else if( this.temperature > 32){
+  else if( this.temperature > 31){
     throw Error("This is too hot.")
   };
 };
@@ -30,9 +30,8 @@ Thermostat.prototype.resetter = function(){
 };
 
 Thermostat.prototype.powerSwitch = function (){
-  this.powerSaver = false;
-  if (this.temperature > 25){
-    this.resetter();
-  }
+  this.powerSaver = (this.powerSaver ? false : true);
+  if(this.powerSaver === true && this.temperature > 24){
+    this.resetter()
+  };
 };
-
