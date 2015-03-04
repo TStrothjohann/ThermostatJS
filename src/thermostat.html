@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <script src="Thermostat.js"></script>
+    <meta charset="utf-8">
+    <title>Thermostat</title>
+  </head>
+  <body>
+
+    <h1>Makes you feel comfy</h1>
+    
+    <div id="temperature"></div>
+    <a href="#" id="increase">Increase</a>
+    <a href="#" id="decrease">Decrease</a>
+
+
+  </body>
+  <script type="text/javascript">
+    thermostat = new Thermostat();
+    document.getElementById("temperature").innerHTML = thermostat.temperature;
+    document.getElementById("increase").onclick = thermostat.increase();
+
+  </script>
+</html>

@@ -31,4 +31,8 @@ Thermostat.prototype.resetter = function(){
 
 Thermostat.prototype.powerSwitch = function (){
   this.powerSaver = false;
+  if (this.temperature > 25){
+    this.resetter();
+  }
 };
+
