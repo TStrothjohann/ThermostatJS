@@ -2,6 +2,7 @@
 <html lang="en">
   <head>
     <script src="Thermostat.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
     <meta charset="utf-8">
     <title>Thermostat</title>
   </head>
@@ -10,15 +11,31 @@
     <h1>Thermostaten</h1>
 
     <div id="temperature"></div>
-    <a href="#" onclick="increase()" id="increase">Increase</a>
-    <a href="#" id="decrease" onclick="decrease()">Decrease</a>
-    <a href="#" id="power" onclick="powersaveron()">Powaaaa Sabre On</a>
+    <a href="#" id="increase">Increase</a>
+    <a href="#" id="decrease">Decrease</a>
+    <a href="#" id="power">Powaaaa Sabre On</a>
 
 
   </body>
   <script type="text/javascript">
-    thermostat = new Thermostat();
-    document.getElementById("temperature").innerHTML = thermostat.temperature;
+  var thermostat = new Thermostat();
+  $( document ).ready(function() {
+    $("#temperature").text(thermostat.temperature)
+  });
+
+  $(document).ready(function() {
+    $("#increase").click(function(){
+      thermostat.increase();
+      $("#temperature").text(thermostat.temperature)
+    });
+  });
+
+  $(document).ready(function() {
+    $("#decrease").click(function(){
+      thermostat.decrease();
+      $("#temperature").text(thermostat.temperature)
+    });
+  });
 
 
   </script>
