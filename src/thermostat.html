@@ -8,17 +8,26 @@
   <body>
 
     <h1>Makes you feel comfy</h1>
-    
+
     <div id="temperature"></div>
-    <a href="#" id="increase">Increase</a>
-    <a href="#" id="decrease">Decrease</a>
+    <a href="#" onclick="increase()" id="increase">Increase</a>
+    <a href="#" id="decrease" onclick="decrease()">Decrease</a>
 
 
   </body>
   <script type="text/javascript">
     thermostat = new Thermostat();
     document.getElementById("temperature").innerHTML = thermostat.temperature;
-    document.getElementById("increase").onclick = thermostat.increase();
 
+    function increase(value){
+      document.getElementById("increase").value = thermostat.increase();
+      document.getElementById("temperature").innerHTML = thermostat.temperature;
+    };
+
+
+    function decrease(value){
+      document.getElementById("increase").value = thermostat.decrease();
+      document.getElementById("temperature").innerHTML = thermostat.temperature;
+    };
   </script>
 </html>
