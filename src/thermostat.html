@@ -9,17 +9,19 @@
   </head>
   <body>
 
-    <h1>Thermostaten</h1>
+<h3>Thermostat</h3>
+  <div id="thermostat">
+    <span class='left'>
+      <div id="display"></div>
+    </span>
+    <span class='right'> 
+      <a href="#" class="btn" id="increase">Warmer</a>
+      <a href="#" class="btn" id="decrease">Cooler</a>
+      <a href="#" class="btn" id="power">Save energy</a>
+    </span>
 
-    <div id="temperature"></div>
-    <a href="#" id="increase">Increase</a>
-    <a href="#" id="decrease">Decrease</a>
-  
-
-    <a id="power">
-      powerSwitch
-    </a>
-
+    
+  </div>
 
 
   </body>
@@ -27,27 +29,27 @@
   <script type="text/javascript">
   var thermostat = new Thermostat();
   $( document ).ready(function() {
-    $("#temperature").text(thermostat.temperature)
+    $("#display").text(thermostat.temperature)
   });
 
   $(document).ready(function() {
     $("#increase").click(function(){
       thermostat.increase();
-      $("#temperature").text(thermostat.temperature)
+      $("#display").text(thermostat.temperature)
     });
   });
 
   $(document).ready(function() {
     $("#decrease").click(function(){
       thermostat.decrease();
-      $("#temperature").text(thermostat.temperature)
+      $("#display").text(thermostat.temperature)
     });
   });
 
   $(document).ready(function() {
     $("#power").click(function() {
       thermostat.powerSwitch(); 
-      $("#temperature").text(thermostat.temperature);
+      $("#display").text(thermostat.temperature);
     });
   });
 
